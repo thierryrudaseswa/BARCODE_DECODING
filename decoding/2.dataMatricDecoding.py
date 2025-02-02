@@ -4,7 +4,7 @@ import pyzxing
 reader = pyzxing.BarCodeReader()
 
 # Decode the image
-barcode = reader.decode('image-02.jpg')
+barcode = reader.decode('/home/thierry/robotics/decoding-codes/decoding/datamatrix_code.jpg')
 
 if barcode:
     print("Decoded Data:", barcode[0]['raw'])

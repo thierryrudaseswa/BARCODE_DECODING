@@ -7,8 +7,8 @@ import os
 javase_jar = "javase-3.5.0.jar"
 core_jar = "core-3.5.0.jar"
 jcommander_jar = "jcommander-1.82.jar"
-barcode_image = "c:/Users/karab/OneDrive/Desktop/AI/decoding-codes/decoding/image-id.png"
-image_path= "file:///"+barcode_image.replace("//","/")
+barcode_image = "/home/thierry/robotics/decoding-codes/decoding/image-id.png"
+image_path = "file:///" + barcode_image.replace("//", "/")
 # Validate required files
 for file in [javase_jar, core_jar, jcommander_jar, barcode_image]:
     if not os.path.exists(file):
@@ -19,10 +19,11 @@ for file in [javase_jar, core_jar, jcommander_jar, barcode_image]:
 java_command = [
     "java",
     "-cp",
-    f"{javase_jar};{core_jar};{jcommander_jar}",  # Classpath for Windows
+    f"{javase_jar}:{core_jar}:{jcommander_jar}",  # Use colon as the classpath separator for Linux
     "com.google.zxing.client.j2se.CommandLineRunner",
-    image_path # Use normal path, no file:// needed
+    image_path,  # Use the normal path, no file:// needed
 ]
+
 
 # Debugging: Check the actual command
 print("Running command:", " ".join(java_command))

@@ -2,7 +2,7 @@ from pyzbar.pyzbar import decode
 from PIL import Image
 
 # Load the QR Code image
-qr_image = Image.open("image-04-qrcode.jpg")
+qr_image = Image.open("decoding/image-04-qrcode.jpg")
 output_file = "decoded_korean.txt"
 
 # Decode the QR Code
